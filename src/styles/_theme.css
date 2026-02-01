@@ -1,0 +1,26 @@
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #121214;
+    --color-bg-alt: #1a1a1e;
+    --color-text: #f0f0f0;
+    --color-text-secondary: #a8a8a8;
+    --color-text-muted: #707070;
+    --color-border: #2e2e32;
+    --color-accent: #4f83e3;
+    --color-accent-hover: #6b96e8;
+    --color-accent-light: #1e2a3e;
+  }
+}
+
+[data-theme="dark"] {
+  --color-bg: #121214;
+  --color-bg-alt: #1a1a1e;
+  --color-text: #f0f0f0;
+  --color-text-secondary: #a8a8a8;
+  --color-text-muted: #707070;
+  --color-border: #2e2e32;
+  --color-accent: #4f83e3;
+  --color-accent-hover: #6b96e8;
+  --color-accent-light: #1e2a3e;
+}

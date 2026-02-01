@@ -1,8 +1,29 @@
+import {
+  Hero,
+  Benefits,
+  Fit,
+  Experience,
+  Process,
+  Formats,
+  Contact,
+  Footer,
+  ThemeToggle,
+} from '@/components';
+
 export default function Home() {
   return (
-    <main>
-      <h1>aderevyankin.ru</h1>
-      <p>Сайт в разработке</p>
-    </main>
+    <>
+      <main id="main">
+        <Hero />
+        <Benefits />
+        <Fit />
+        <Experience />
+        <Process />
+        <Formats />
+        <Contact />
+      </main>
+      <Footer />
+      <ThemeToggle />
+    </>
   );
 }

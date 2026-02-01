@@ -1,0 +1,24 @@
+.hero {
+  padding-block: var(--spacing-20) var(--spacing-16);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: var(--spacing-6);
+  max-width: 12ch;
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  max-width: 48ch;
+  margin-bottom: var(--spacing-8);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-block: var(--spacing-12);
+  }
+}

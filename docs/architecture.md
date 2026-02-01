@@ -22,15 +22,19 @@ src/
 │   └── favicon.ico
 │
 ├── components/          # React-компоненты
+│   ├── index.ts         # Общий экспорт всех компонентов
 │   ├── Hero/
 │   │   ├── Hero.tsx
-│   │   └── Hero.module.css
+│   │   ├── Hero.module.css
+│   │   └── index.ts
 │   ├── Benefits/
 │   ├── Fit/
 │   ├── Experience/
 │   ├── Process/
 │   ├── Formats/
-│   └── Contact/
+│   ├── Contact/
+│   ├── Footer/
+│   └── ThemeToggle/     # Переключатель темы (client component)
 │
 ├── styles/              # Общие стили (если нужны)
 │
@@ -44,6 +48,8 @@ src/
 - Каждый компонент в своей папке: `ComponentName/`
 - Рядом лежит CSS Module: `ComponentName.module.css`
 - Экспорт через именованный export (не default)
+- Каждая папка имеет `index.ts` для реэкспорта
+- Общий `components/index.ts` для удобного импорта
 
 ```tsx
 // components/Hero/Hero.tsx
@@ -52,6 +58,12 @@ import styles from './Hero.module.css';
 export function Hero() {
   return <section className={styles.hero}>...</section>;
 }
+
+// components/Hero/index.ts
+export { Hero } from './Hero';
+
+// Использование в page.tsx
+import { Hero, Benefits, Contact } from '@/components';
 ```
 
 ### Стили
@@ -60,6 +72,37 @@ export function Hero() {
 - CSS-переменные в `globals.css` для дизайн-токенов
 - Mobile-first подход
 - Без CSS-in-JS, без Tailwind
+
+### Темы (светлая/тёмная)
+
+Реализация через CSS-переменные:
+
+```css
+:root {
+  /* Light theme (default) */
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  /* ... */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #121214;
+    --color-text: #f0f0f0;
+  }
+}
+
+[data-theme="dark"] {
+  /* Manual dark override */
+}
+```
+
+Три режима:
+- **system** — следует настройкам ОС (по умолчанию)
+- **light** — принудительно светлая
+- **dark** — принудительно тёмная
+
+Переключение через `ThemeToggle` компонент (сохраняет выбор в localStorage).
 
 ### Маршрутизация
 
