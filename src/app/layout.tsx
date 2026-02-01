@@ -11,7 +11,32 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Андрей Деревянкин — технический партнёр для бизнеса',
   description:
-    'Помогаю бизнесу выстроить цифровую часть: от стратегии до работающего продукта',
+    'Помогаю компаниям выстроить цифровую часть: от стратегии до работающего продукта. Запуск MVP, архитектура, автоматизация.',
+  keywords: [
+    'технический партнёр',
+    'CTO',
+    'разработка MVP',
+    'цифровизация бизнеса',
+    'автоматизация процессов',
+  ],
+  authors: [{ name: 'Андрей Деревянкин' }],
+  openGraph: {
+    title: 'Андрей Деревянкин — технический партнёр для бизнеса',
+    description:
+      'Помогаю компаниям выстроить цифровую часть: от стратегии до работающего продукта',
+    url: 'https://aderevyankin.ru',
+    siteName: 'Андрей Деревянкин',
+    locale: 'ru_RU',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  metadataBase: new URL('https://aderevyankin.ru'),
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 export default function RootLayout({

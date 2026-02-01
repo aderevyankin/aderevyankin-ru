@@ -6,7 +6,7 @@ export function Contact() {
       <div className="container">
         <h2 className={styles.title}>Обсудить задачу</h2>
         <p className={styles.intro}>
-          Расскажите коротко о вашей ситуации — я свяжусь в течение рабочего
+          Расскажите коротко о&nbsp;вашей ситуации — я свяжусь с&nbsp;вами в&nbsp;течение рабочего
           дня
         </p>
         <form className={styles.form}>
@@ -25,7 +25,7 @@ export function Contact() {
           </div>
           <div className={styles.field}>
             <label htmlFor="contact" className={styles.label}>
-              Как с вами связаться
+              Как с&nbsp;вами связаться
             </label>
             <input
               type="text"

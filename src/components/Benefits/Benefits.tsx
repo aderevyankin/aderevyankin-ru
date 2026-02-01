@@ -7,8 +7,9 @@ const benefits: Array<{ title: ReactNode; description: ReactNode }> = [
     title: 'Запуск цифровых продуктов',
     description: (
       <>
-        От идеи до <Abbr term="MVP" definition="минимально жизнеспособный продукт" /> и дальше
-        — с фокусом на результат
+        От&nbsp;идеи до&nbsp;
+        <Abbr term="MVP" definition="минимально жизнеспособный продукт" /> и&nbsp;дальше — с&nbsp;фокусом
+        на&nbsp;результат
       </>
     ),
   },
@@ -23,10 +24,18 @@ const benefits: Array<{ title: ReactNode; description: ReactNode }> = [
   {
     title: (
       <>
-        Роль <Abbr term="CTO" definition="технический директор" /> на старте
+        Роль <Abbr term="CTO" definition="технический директор" /> на&nbsp;старте
       </>
     ),
-    description: 'Техническое лидерство без найма в штат',
+    description: 'Техническое лидерство без\u00a0найма в\u00a0штат',
+  },
+  {
+    title: 'Формирование команды',
+    description: 'Привлекаю проверенных специалистов: дизайнеров, разработчиков, тестировщиков',
+  },
+  {
+    title: 'Перевод на человеческий',
+    description: 'Доношу суть решений так, чтобы было понятно, зачем это нужно бизнесу',
   },
 ];
 
