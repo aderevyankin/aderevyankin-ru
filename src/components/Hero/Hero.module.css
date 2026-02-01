@@ -3,6 +3,21 @@
   min-height: 70vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
@@ -16,9 +31,129 @@
   margin-bottom: var(--spacing-8);
 }
 
+/* 3D Orbital rings */
+.orbits {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  flex-shrink: 0;
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.orbit {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  opacity: 0.35;
+}
+
+.orbit:nth-child(1) {
+  transform: rotateX(75deg);
+  animation: float1 8s ease-in-out infinite;
+}
+
+.orbit:nth-child(2) {
+  transform: rotateX(75deg) rotateY(60deg);
+  animation: float2 10s ease-in-out infinite;
+  opacity: 0.25;
+}
+
+.orbit:nth-child(3) {
+  transform: rotateX(75deg) rotateY(-60deg);
+  animation: float3 12s ease-in-out infinite;
+  opacity: 0.2;
+}
+
+.core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  box-shadow: 0 0 15px var(--color-accent);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% {
+    transform: rotateX(75deg) rotateY(-20deg) rotateZ(0deg);
+  }
+  50% {
+    transform: rotateX(75deg) rotateY(20deg) rotateZ(10deg);
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: rotateX(75deg) rotateY(40deg) rotateZ(5deg);
+  }
+  50% {
+    transform: rotateX(75deg) rotateY(80deg) rotateZ(-5deg);
+  }
+}
+
+@keyframes float3 {
+  0%, 100% {
+    transform: rotateX(75deg) rotateY(-80deg) rotateZ(-5deg);
+  }
+  50% {
+    transform: rotateX(75deg) rotateY(-40deg) rotateZ(5deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    box-shadow: 0 0 15px var(--color-accent);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 25px var(--color-accent);
+  }
+}
+
+@media (max-width: 1024px) {
+  .orbits {
+    width: 260px;
+    height: 260px;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
     padding-block: var(--spacing-12);
+  }
+
+  .container {
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+  }
+
+  .title {
+    max-width: none;
+  }
+
+  .subtitle {
+    max-width: none;
+  }
+
+  /* На мобильном — фоновый режим */
+  .orbits {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.4;
+    z-index: 0;
   }
 }

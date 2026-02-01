@@ -18,7 +18,6 @@ src/
 ├── app/                 # Next.js App Router (файловый роутинг)
 │   ├── layout.tsx       # Корневой layout, метаданные, шрифты
 │   ├── page.tsx         # Главная страница (точка входа)
-│   ├── globals.css      # CSS-переменные, reset, базовые стили
 │   └── favicon.ico
 │
 ├── components/          # React-компоненты
@@ -36,9 +35,16 @@ src/
 │   ├── Footer/
 │   └── ThemeToggle/     # Переключатель темы (client component)
 │
-├── styles/              # Общие стили (если нужны)
+├── styles/              # Глобальные стили
+│   ├── globals.css      # Главный файл, импортирующий все части
+│   ├── _reset.css       # Сброс стилей
+│   ├── _variables.css   # CSS-переменные (дизайн-токены)
+│   ├── _theme.css       # Стили для тёмной темы
+│   ├── _base.css        # Базовые стили (body, headings)
+│   ├── _layout.css      # Стили раскладки (container, section)
+│   └── _ui.css          # Стили для UI-элементов (btn)
 │
-└── lib/                 # Утилиты (если понадобятся)
+├── lib/                 # Утилиты (если понадобятся)
 ```
 
 ## Принципы
@@ -69,7 +75,7 @@ import { Hero, Benefits, Contact } from '@/components';
 ### Стили
 
 - CSS Modules для изоляции стилей
-- CSS-переменные в `globals.css` для дизайн-токенов
+- CSS-переменные в `src/styles/_variables.css` для дизайн-токенов
 - Mobile-first подход
 - Без CSS-in-JS, без Tailwind
 

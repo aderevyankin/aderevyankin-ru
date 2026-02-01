@@ -8,16 +8,16 @@ const experience: Array<{
     result: ReactNode;
 }> = [
     {
-        domain: 'Строительство и девелопмент',
+        domain: 'Строительство и госсектор',
         role: (
             <>
                 <Abbr term="CTO" definition="технический директор"/>, техлид
             </>
         ),
-        result: 'Цифровизация процессов, внутренние продукты',
+        result: 'Цифровизация, внутренние продукты, госконтракты',
     },
     {
-        domain: 'Финтех и платежи',
+        domain: (<><Abbr term="Финтех" definition="финансовые технологии"/> и платежи</>),
         role: 'Архитектор, разработчик',
         result: 'Платёжные системы, интеграции с банками',
     },
@@ -44,7 +44,7 @@ export function Experience() {
                 <h2 className={styles.title}>Опыт и бэкграунд</h2>
                 <ul className={styles.intro}>
                     <li className={styles.introItem}>
-                        12+ лет в разработке: продуктовые компании, стартапы, партнёрство.
+                        10+ лет в разработке: продуктовые компании, стартапы, партнёрство.
                     </li>
                     <li className={styles.introItem}>
                         Фокус на бизнес-результате, а не на технологиях ради технологий.
@@ -52,6 +52,10 @@ export function Experience() {
                     <li className={styles.introItem}>
                         Помогаю превращать идеи в устойчивые решения: архитектура, команда,
                         качество и сроки.
+                    </li>
+                    <li className={styles.introItem}>
+                        Внедряю <Abbr term="AI" definition="искусственный интеллект"/> там, где это сокращает издержки и
+                        ускоряет процессы.
                     </li>
                 </ul>
                 <ul className={styles.list}>

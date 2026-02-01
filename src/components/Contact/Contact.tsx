@@ -45,7 +45,7 @@ export function Contact() {
               name="message"
               className={styles.textarea}
               rows={4}
-              placeholder="Коротко опишите ситуацию и что хотите получить"
+              placeholder="Коротко опишите ситуацию и то, что хотите получить"
               required
             />
           </div>
