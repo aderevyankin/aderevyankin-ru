@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className="container">
-        <p className={styles.text}>© {year} Андрей Деревянкин</p>
+        <p className={styles.text}>© {year} Andrey Derevyankin</p>
       </div>
     </footer>
   );
