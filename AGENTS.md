@@ -1,0 +1,1 @@
+/Users/a_derevyankin/Documents/Projects/aderevyankin-ru/AI_CONTEXT.md
