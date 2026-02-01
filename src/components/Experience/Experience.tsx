@@ -42,13 +42,18 @@ export function Experience() {
         <section className={`section section-alt ${styles.experience}`}>
             <div className="container">
                 <h2 className={styles.title}>Опыт и бэкграунд</h2>
-                <p className={styles.intro}>
-                    12+ лет в разработке. Работал в продуктовых компаниях, стартапах и
-                    как независимый партнёр. Фокус — на бизнес-результате, не на
-                    технологиях ради технологий.<br/>
-                    Помогаю превращать идеи в устойчивые решения: задаю
-                    архитектуру, выстраиваю работу команды, слежу за качеством и сроками.
-                </p>
+                <ul className={styles.intro}>
+                    <li className={styles.introItem}>
+                        12+ лет в разработке: продуктовые компании, стартапы, партнёрство.
+                    </li>
+                    <li className={styles.introItem}>
+                        Фокус на бизнес-результате, а не на технологиях ради технологий.
+                    </li>
+                    <li className={styles.introItem}>
+                        Помогаю превращать идеи в устойчивые решения: архитектура, команда,
+                        качество и сроки.
+                    </li>
+                </ul>
                 <ul className={styles.list}>
                     {experience.map((item, index) => (
                         <li key={`experience-${index}`} className={styles.item}>
