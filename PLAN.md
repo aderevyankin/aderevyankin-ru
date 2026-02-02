@@ -65,23 +65,32 @@
 
 ## Фаза 4: Форма обратной связи
 
-- [ ] **4.1** Реализовать UI формы
+- [x] **4.1** Реализовать UI формы
   - Поля: имя, способ связи, описание задачи
-  - Валидация на клиенте
+  - Валидация на клиенте (required)
   - Состояния: idle, loading, success, error
+  - Хук `useContactForm.ts` для логики
 
-- [ ] **4.2** Создать Telegram-бота
+- [x] **4.2** Создать Telegram-бота
   - Получить токен через @BotFather
   - Получить chat_id
 
-- [ ] **4.3** Создать Yandex Cloud Function
+- [x] **4.3** Создать Yandex Cloud Function
+  - `functions/contact-form/index.js`
   - Обработка POST-запроса
   - Отправка в Telegram Bot API
   - CORS-настройки
+  - Функция публичная (allow-unauthenticated-invoke)
 
-- [ ] **4.4** Интегрировать форму с функцией
+- [x] **4.4** Интегрировать форму с функцией
   - Fetch API для отправки
   - Обработка ответов
+  - `NEXT_PUBLIC_FORM_API_URL` в .env
+
+- [x] **4.5** Скрипт деплоя
+  - `deploy.sh` — фронтенд + функция
+  - Профиль YC CLI `aderevyankin-ru`
+  - Сервисный аккаунт `site-deployer`
 
 ---
 
@@ -108,14 +117,15 @@
 
 ## Фаза 6: Деплой
 
-- [ ] **6.1** Настроить Yandex Object Storage
-  - Создать бакет
-  - Настроить как статический сайт
-  - Загрузить содержимое `out/`
+- [x] **6.1** Настроить Yandex Object Storage
+  - Бакет `aderevyankin.ru` создан
+  - Настроен как статический сайт (index.html)
+  - Деплой через `./deploy.sh`
 
 - [ ] **6.2** Настроить домен
-  - DNS-записи на Рег.ру
-  - SSL-сертификат (Let's Encrypt или Yandex Certificate Manager)
+  - [x] DNS-записи на Рег.ру (A, CNAME)
+  - [ ] SSL-сертификат (Yandex Certificate Manager) — в процессе
+  - [ ] CDN с привязкой сертификата
 
 - [ ] **6.3** Настроить CI/CD (опционально)
   - GitHub Actions для автодеплоя

@@ -10,6 +10,7 @@
     --color-accent: #4f83e3;
     --color-accent-hover: #6b96e8;
     --color-accent-light: #1e2a3e;
+    --color-error: #f87171;
   }
 }
 
@@ -23,4 +24,5 @@
   --color-accent: #4f83e3;
   --color-accent-hover: #6b96e8;
   --color-accent-light: #1e2a3e;
+  --color-error: #f87171;
 }

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { clsx } from '@/lib';
 import { Abbr } from '../Abbr';
 import styles from './Benefits.module.css';
 
@@ -41,7 +42,7 @@ const benefits: Array<{ title: ReactNode; description: ReactNode }> = [
 
 export function Benefits() {
   return (
-    <section className={`section section-alt ${styles.benefits}`}>
+    <section className={clsx('section', 'section-alt', styles.benefits)}>
       <div className="container">
         <h2 className={styles.title}>Чем полезен бизнесу</h2>
         <ul className={styles.grid}>

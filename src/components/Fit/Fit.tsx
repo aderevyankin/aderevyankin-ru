@@ -1,3 +1,4 @@
+import { clsx } from '@/lib';
 import styles from './Fit.module.css';
 
 const goodFit = [
@@ -16,9 +17,9 @@ const badFit = [
 
 export function Fit() {
   return (
-    <section className={`section ${styles.fit}`}>
+    <section className={clsx('section', styles.fit)}>
       <div className="container">
-        <h2 className={styles.title}>Для кого я</h2>
+        <h2 className={styles.title}>Для кого этот формат</h2>
         <div className={styles.columns}>
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Подходит, если</h3>

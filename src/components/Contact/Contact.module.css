@@ -73,3 +73,33 @@
   resize: vertical;
   min-height: 100px;
 }
+
+.input:disabled,
+.textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: var(--color-error, #dc3545);
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  max-width: 480px;
+}
+
+.successText {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+}
+
+.successSubtext {
+  color: var(--color-text-muted);
+  margin: 0;
+}

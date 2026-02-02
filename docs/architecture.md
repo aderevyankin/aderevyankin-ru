@@ -44,7 +44,9 @@ src/
 │   ├── _layout.css      # Стили раскладки (container, section)
 │   └── _ui.css          # Стили для UI-элементов (btn)
 │
-├── lib/                 # Утилиты (если понадобятся)
+├── lib/                 # Утилиты
+│   ├── index.ts         # Общий экспорт
+│   └── clsx.ts          # Объединение CSS-классов
 ```
 
 ## Принципы
@@ -59,10 +61,11 @@ src/
 
 ```tsx
 // components/Hero/Hero.tsx
+import { clsx } from '@/lib';
 import styles from './Hero.module.css';
 
 export function Hero() {
-  return <section className={styles.hero}>...</section>;
+  return <section className={clsx('section', styles.hero)}>...</section>;
 }
 
 // components/Hero/index.ts
@@ -78,6 +81,7 @@ import { Hero, Benefits, Contact } from '@/components';
 - CSS-переменные в `src/styles/_variables.css` для дизайн-токенов
 - Mobile-first подход
 - Без CSS-in-JS, без Tailwind
+- Утилита `clsx` для объединения классов (защита от `undefined` в className)
 
 ### Темы (светлая/тёмная)
 

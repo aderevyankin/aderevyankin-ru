@@ -1,4 +1,5 @@
 import type {ReactNode} from 'react';
+import {clsx} from '@/lib';
 import {Abbr} from '../Abbr';
 import styles from './Experience.module.css';
 
@@ -43,7 +44,7 @@ const experience: Array<{
 
 export function Experience() {
     return (
-        <section className={`section section-alt ${styles.experience}`}>
+        <section className={clsx('section', 'section-alt', styles.experience)}>
             <div className="container">
                 <h2 className={styles.title}>Опыт и бэкграунд</h2>
                 <ul className={styles.intro}>

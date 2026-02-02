@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useId, useRef, useState } from 'react';
+import { clsx } from '@/lib';
 import styles from './Abbr.module.css';
 
 type AbbrProps = {
@@ -44,7 +45,7 @@ export function Abbr({ term, definition, className }: AbbrProps) {
     <span ref={wrapperRef} className={styles.wrapper} data-open={open ? 'true' : 'false'}>
       <button
         type="button"
-        className={`${styles.trigger}${className ? ` ${className}` : ''}`}
+        className={clsx(styles.trigger, className)}
         onClick={() => setOpen((prev) => !prev)}
         aria-describedby={tooltipId}
         aria-expanded={open}

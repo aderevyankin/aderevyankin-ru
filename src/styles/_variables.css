@@ -47,6 +47,7 @@
   --color-accent: #1a56db;
   --color-accent-hover: #1648b8;
   --color-accent-light: #e8eefb;
+  --color-error: #dc2626;
 
   color-scheme: light dark;
 }

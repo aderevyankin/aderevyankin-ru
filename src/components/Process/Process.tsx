@@ -1,3 +1,4 @@
+import { clsx } from '@/lib';
 import styles from './Process.module.css';
 
 const steps = [
@@ -30,7 +31,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section className={`section ${styles.process}`}>
+    <section className={clsx('section', styles.process)}>
       <div className="container">
         <h2 className={styles.title}>Как я работаю</h2>
         <ol className={styles.list}>

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { clsx } from '@/lib';
 import { Abbr } from '../Abbr';
 import styles from './Formats.module.css';
 
@@ -27,7 +28,7 @@ const formats: Array<{ title: string; description: ReactNode }> = [
 
 export function Formats() {
   return (
-    <section className={`section section-alt ${styles.formats}`}>
+    <section className={clsx('section', 'section-alt', styles.formats)}>
       <div className="container">
         <h2 className={styles.title}>Форматы сотрудничества</h2>
         <ul className={styles.list}>

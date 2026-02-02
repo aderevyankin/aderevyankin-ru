@@ -1,15 +1,38 @@
+'use client';
+
+import { clsx } from '@/lib';
 import styles from './Contact.module.css';
+import { useContactForm } from './useContactForm';
 
 export function Contact() {
+  const { status, errorMessage, handleSubmit, reset, isLoading, isSuccess } = useContactForm();
+
+  if (isSuccess) {
+    return (
+      <section id="contact" className={clsx('section', styles.contact)}>
+        <div className="container">
+          <h2 className={styles.title}>Обсудить задачу</h2>
+          <div className={styles.success}>
+            <p className={styles.successText}>Сообщение отправлено.</p>
+            <p className={styles.successSubtext}>Свяжусь с вами в течение рабочего дня.</p>
+            <button type="button" className="btn btn-secondary" onClick={reset}>
+              Отправить ещё
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section id="contact" className={`section ${styles.contact}`}>
+    <section id="contact" className={clsx('section', styles.contact)}>
       <div className="container">
         <h2 className={styles.title}>Обсудить задачу</h2>
         <p className={styles.intro}>
           Расскажите коротко о&nbsp;вашей ситуации — я свяжусь с&nbsp;вами в&nbsp;течение рабочего
           дня
         </p>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.field}>
             <label htmlFor="name" className={styles.label}>
               Как вас зовут
@@ -21,6 +44,7 @@ export function Contact() {
               className={styles.input}
               required
               autoComplete="name"
+              disabled={isLoading}
             />
           </div>
           <div className={styles.field}>
@@ -34,6 +58,7 @@ export function Contact() {
               className={styles.input}
               placeholder="Telegram, телефон или email"
               required
+              disabled={isLoading}
             />
           </div>
           <div className={styles.field}>
@@ -47,10 +72,12 @@ export function Contact() {
               rows={4}
               placeholder="Коротко опишите ситуацию и то, что хотите получить"
               required
+              disabled={isLoading}
             />
           </div>
-          <button type="submit" className="btn btn-primary">
-            Отправить
+          {status === 'error' && <p className={styles.error}>{errorMessage}</p>}
+          <button type="submit" className="btn btn-primary" disabled={isLoading}>
+            {isLoading ? 'Отправка...' : 'Отправить'}
           </button>
         </form>
       </div>

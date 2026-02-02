@@ -1,9 +1,10 @@
+import { clsx } from '@/lib';
 import styles from './Hero.module.css';
 
 export function Hero() {
   return (
     <section className={styles.hero}>
-      <div className={`container ${styles.container}`}>
+      <div className={clsx('container', styles.container)}>
         <div className={styles.content}>
           <h1 className={styles.title}>
             Технический партнёр
