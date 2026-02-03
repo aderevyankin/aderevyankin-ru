@@ -42,10 +42,12 @@
   --color-bg-alt: #f8f9fa;
   --color-text: #1a1a1a;
   --color-text-secondary: #5c5c5c;
-  --color-text-muted: #8a8a8a;
+  --color-text-muted: #707070;
   --color-border: #e0e0e0;
   --color-accent: #1a56db;
   --color-accent-hover: #1648b8;
+  --color-accent-strong: var(--color-accent);
+  --color-accent-strong-hover: var(--color-accent-hover);
   --color-accent-light: #e8eefb;
   --color-error: #dc2626;
 

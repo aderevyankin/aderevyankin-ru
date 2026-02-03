@@ -12,7 +12,7 @@ export function Contact() {
       <section id="contact" className={clsx('section', styles.contact)}>
         <div className="container">
           <h2 className={styles.title}>Обсудить задачу</h2>
-          <div className={styles.success}>
+          <div className={styles.success} role="status" aria-live="polite">
             <p className={styles.successText}>Сообщение отправлено.</p>
             <p className={styles.successSubtext}>Свяжусь с вами в течение рабочего дня.</p>
             <button type="button" className="btn btn-secondary" onClick={reset}>
@@ -32,7 +32,7 @@ export function Contact() {
           Расскажите коротко о&nbsp;вашей ситуации — я свяжусь с&nbsp;вами в&nbsp;течение рабочего
           дня
         </p>
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit} aria-busy={isLoading}>
           <div className={styles.field}>
             <label htmlFor="name" className={styles.label}>
               Как вас зовут
@@ -75,7 +75,11 @@ export function Contact() {
               disabled={isLoading}
             />
           </div>
-          {status === 'error' && <p className={styles.error}>{errorMessage}</p>}
+          {status === 'error' && (
+            <p className={styles.error} role="alert">
+              {errorMessage}
+            </p>
+          )}
           <button type="submit" className="btn btn-primary" disabled={isLoading}>
             {isLoading ? 'Отправка...' : 'Отправить'}
           </button>

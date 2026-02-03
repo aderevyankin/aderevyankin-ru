@@ -15,9 +15,9 @@
 
 .btn-primary {
   color: #fff;
-  background: var(--color-accent);
+  background: var(--color-accent-strong);
 }
-.btn-primary:hover { background: var(--color-accent-hover); }
+.btn-primary:hover { background: var(--color-accent-strong-hover); }
 
 .btn-secondary {
   color: var(--color-text);
@@ -40,7 +40,7 @@
   left: var(--spacing-4);
   z-index: 1000;
   padding: var(--spacing-3) var(--spacing-4);
-  background: var(--color-accent);
+  background: var(--color-accent-strong);
   color: #fff;
   border-radius: var(--radius-md);
   transform: translateY(-200%);
