@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# aderevyankin.ru
 
-## Getting Started
+Сайт-визитка технического партнера для бизнеса вне IT. Одностраничный статический сайт на Next.js с фокусом на доверие, системность и скорость.
 
-First, run the development server:
+**Задачи сайта**
+- Быстро объяснить, кто я и чем полезен бизнесу.
+- Отфильтровать неподходящие запросы.
+- Сформировать ощущение надежности и ответственности.
 
+**Почему код публичный**
+Этот репозиторий открыт, чтобы показать, как можно сделать сайт максимально простым, но при этом:
+- работоспособным,
+- масштабируемым,
+- дешевым в поддержке,
+- устойчивым в продакшене.
+
+Это не витринный код и не «портфолио на показ» — это рабочая реализация, которую можно брать за основу.
+
+**Ключевые принципы качества**
+- Максимальные показатели Lighthouse.
+- Минимальный JavaScript.
+- Zero layout shift.
+- Идеальная адаптивность и доступность.
+- Чистая семантика HTML.
+
+**Секции страницы**
+- Hero-блок.
+- Чем полезен бизнесу.
+- Для кого подхожу и для кого нет.
+- Опыт и бэкграунд.
+- Как я работаю.
+- Форматы сотрудничества.
+- Контактная форма.
+
+**Стек**
+- Next.js (App Router, static export).
+- TypeScript (strict).
+- CSS Modules.
+- Yandex Object Storage.
+- Yandex Cloud Functions.
+- Telegram Bot API.
+
+**Локальный запуск**
+1. `npm install`
+2. `npm run dev`
+3. Открыть `http://localhost:3000`
+
+**Сборка и экспорт**
+- `npm run build`
+- Результат: `out/`
+
+**Контактная форма**
+Форма отправляет данные в Yandex Cloud Function, которая пересылает сообщение в Telegram.
+
+**Переменные окружения**
+Frontend (локально, файл `.env.local`):
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+NEXT_PUBLIC_FORM_API_URL=https://<your-function-url>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Деплой через `deploy.sh` (файл `.env`):
+| Переменная | Назначение |
+| --- | --- |
+| `AWS_ACCESS_KEY_ID` | Доступ к Object Storage |
+| `AWS_SECRET_ACCESS_KEY` | Доступ к Object Storage |
+| `BUCKET_NAME` | Имя бакета сайта |
+| `YC_FUNCTION_ID` | ID функции в Yandex Cloud |
+| `TELEGRAM_BOT_TOKEN` | Токен бота |
+| `TELEGRAM_CHAT_ID` | ID чата для уведомлений |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Деплой**
+- Скрипт: `./deploy.sh`
+- Требуются CLI: `yc`, `aws`
+- Скрипт умеет деплоить фронтенд, функцию или оба компонента
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Структура проекта**
+- `src/app` — layout и главная страница.
+- `src/components` — все секции и UI-компоненты.
+- `src/styles` — дизайн-токены и базовые стили.
+- `functions/contact-form` — серверлес-обработчик формы.
+- `docs` — стратегия, архитектура и ориентиры.
 
-## Learn More
+**Документация**
+- [`docs/INDEX.md`](docs/INDEX.md) — индекс документов.
+- [`docs/core_idea.md`](docs/core_idea.md) — позиционирование и смыслы.
+- [`docs/architecture.md`](docs/architecture.md) — архитектура и структура.
+- [`docs/project-notes.md`](docs/project-notes.md) — цели, требования, решения и ограничения.
+- [`PLAN.md`](PLAN.md) — план работ и статус.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Лицензия**
+MIT — см. [`LICENSE`](LICENSE).
